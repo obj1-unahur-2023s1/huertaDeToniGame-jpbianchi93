@@ -1,4 +1,8 @@
+import wollok.game.*
+
 object pachamama {
+	var property position = game.origin()
+	var property image = "pachamama-agradecida.png"
 	var nivelAgradecimiento = 10
 	
 	method llover() {
