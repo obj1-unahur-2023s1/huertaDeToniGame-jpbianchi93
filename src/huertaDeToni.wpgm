@@ -13,11 +13,13 @@ program huertaDeToni {
 	// Agregamos al amigo Toni.
 	game.addVisual(toni)
 	
+	game.addVisual(pachamama)
+	
 	/*
 	 * Acá usamos addVisualIn en vez de addVisual, y por esto 
 	 * no es necesario que la pachamama conozca su position.
 	 */
-	game.addVisualIn(pachamama, game.at(0, 13));
+	//game.addVisualIn(pachamama, game.at(0, 13));
 	
 	/* 
 	 * Agregamos una fila de maices. Ojo al regar, que Toni no va a conocer
@@ -29,6 +31,7 @@ program huertaDeToni {
 	 * De yapa, mostramos cómo agregar varios objetos de una utilizando
 	 * un rango (1..13), que equivale a la lista [1, 2, 3, ..., 13].
 	 */
+	 //coleccion de numeros del 1 al 13
 	(1..13).forEach { x => game.addVisualIn(new Maiz(), game.at(x, 5)) }
 		
 	game.start()
