@@ -2,6 +2,12 @@ import wollok.game.*
 import plantas.*
 
 object toni {
+	//wollok game
+	//posicion inicial
+	var property position = game.center()
+	//imagen
+	const property image = "toni.png"
+	
 	const plantasSembradas = []
 	const plantasCosechadas = []
 	var monedas = 0
