@@ -13,6 +13,9 @@ program huertaDeToni {
 	// Agregamos al amigo Toni.
 	game.addVisual(toni)
 	
+	//movimiento de flechas por defecto
+	game.addVisualCharacter(toni)
+	
 	game.addVisual(pachamama)
 	
 	/*
@@ -32,7 +35,54 @@ program huertaDeToni {
 	 * un rango (1..13), que equivale a la lista [1, 2, 3, ..., 13].
 	 */
 	 //coleccion de numeros del 1 al 13
-	(1..13).forEach { x => game.addVisualIn(new Maiz(), game.at(x, 5)) }
-		
+	(1..13).forEach { x => 
+		const Maiz = New Maiz()
+		ton.plantar(maiz)
+		game.addVisualIn(maiz, game.at(x, 5))
+	}
+	(1..13).forEach { x =>
+		const trigo = New Trigo()
+		toni.plantar(trigo)
+		game.addVisualIn(trigo, game.at(x, 4)) 
+	}
+
+	//Setear teclas
+	keyboard.m().onPressDo {
+		const maiz = New Maiz()
+		toni.plantar(maiz)
+		game.addVisualIn(maiz, toni.position()) 
+	}
+	keyboard.t().onPressDo {
+		const trigo = New Trigo()
+		toni.plantar(trigo)
+		game.addVisualIn(trigo, toni.position()) 
+	}
+	keyboard.o().onPressDo {
+		const tomaco = New Tomaco()
+		toni.plantar(tomaco)
+		game.addVisualIn(tomaco, toni.position()) 
+	}
+	
+	keyboard.a().onPressDo {
+		toni.regarLasPlantas()
+	}
+	keyboard.r().onPressDo {
+		game.colliders(toni).forEach{planta => regar(planta)}
+	}
+	
+	keyboard.x().onPressDo {
+		const lista = toni.plantasListasParaCosechar()
+		toni.cosecharTodo(lista)
+		lista.forEach {lista => game.removeVisual(lista)}
+	}
+	keyboard.c().onPressDo {
+	}
+	
+	keyboard.v().onPressDo {
+	}
+	
+	keyboard.z().onPressDo {
+		pachamama.tirarBasura()
+	}
 	game.start()
 }
