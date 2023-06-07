@@ -17,13 +17,14 @@ object toni {
 		plantasSembradas.add(unaPlanta)
 	}
 	method regarLasPlantas() {
-		plantasSembradas.forEach({planta => planta.regate()})
+		plantasSembradas.forEach({planta => self.regar(planta)})
 	}
-	
-	method cosecharTodo() {
-		self.plantasListasParaCosechar().forEach{ 
-		planta => self.cosechar(unaPlanta)
-		}
+	method regar(unaPlanta){
+		unaPlanta.regate()
+	}
+	method cosecharTodo(plantasListasParaCosechar) {
+		plantasListasParaCosechar.forEach{ 
+		planta => self.cosechar(unaPlanta)}
 	}
 	method plantasListasParaCosechar(){
 		return plantasSembradas.filter{planta=>planta.estaLisa()}
