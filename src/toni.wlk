@@ -24,7 +24,7 @@ object toni {
 	}
 	method cosecharTodo(plantasListasParaCosechar) {
 		plantasListasParaCosechar.forEach{ 
-		planta => self.cosechar(unaPlanta)}
+		planta => self.cosechar(plantasListasParaCosechar)}
 	}
 	method plantasListasParaCosechar(){
 		return plantasSembradas.filter{planta=>planta.estaLisa()}
@@ -35,18 +35,18 @@ object toni {
 	}
 	method venderCosecha(){
 		monedas += self.valorDeCosecha()
-		palantasCosechadas.clear()
+		plantasCosechadas.clear()
 	}	
 	method paraCuantosDiasAlcanza() {
 	//div= devuelve el cociente
-		return (monedas + self.valorDecosecha()).div(200)
+		return (monedas + self.valorDeCosecha()).div(200)
 	}
 	method valorDeCosecha() = plantasCosechadas.sum{planta => planta.valor()}
 	
 	method cuantoHayParaCeliacos () = 
 	self
 	.plantasListasParaCosechar()
-	.count {planta => not plana.tieneGluten() }
+	.count {planta => not planta.tieneGluten() }
 	
 	method convieneRegar() = plantasSembradas.any { planta => not planta.estaLista() }
 }

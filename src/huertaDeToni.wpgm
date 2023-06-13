@@ -36,29 +36,29 @@ program huertaDeToni {
 	 */
 	 //coleccion de numeros del 1 al 13
 	(1..13).forEach { x => 
-		const Maiz = New Maiz()
-		ton.plantar(maiz)
+		const maiz = new Maiz()
+		toni.plantar(maiz)
 		game.addVisualIn(maiz, game.at(x, 5))
 	}
 	(1..13).forEach { x =>
-		const trigo = New Trigo()
+		const trigo = new Trigo()
 		toni.plantar(trigo)
 		game.addVisualIn(trigo, game.at(x, 4)) 
 	}
 
 	//Setear teclas
 	keyboard.m().onPressDo {
-		const maiz = New Maiz()
+		const maiz = new Maiz()
 		toni.plantar(maiz)
 		game.addVisualIn(maiz, toni.position()) 
 	}
 	keyboard.t().onPressDo {
-		const trigo = New Trigo()
+		const trigo = new Trigo()
 		toni.plantar(trigo)
 		game.addVisualIn(trigo, toni.position()) 
 	}
 	keyboard.o().onPressDo {
-		const tomaco = New Tomaco()
+		const tomaco = new Tomaco()
 		toni.plantar(tomaco)
 		game.addVisualIn(tomaco, toni.position()) 
 	}
@@ -67,7 +67,7 @@ program huertaDeToni {
 		toni.regarLasPlantas()
 	}
 	keyboard.r().onPressDo {
-		game.colliders(toni).forEach{planta => regar(planta)}
+		game.colliders(toni).forEach{planta => toni.regar(planta)}
 	}
 	
 	keyboard.x().onPressDo {
